@@ -11,10 +11,12 @@ public class HttpServerPDT {
     private static Integer port;
     private static Integer cont = 0;
     private static String listicaURL [] = new String [2];
+    private static String url = "ec2-3-87-66-72.compute-1.amazonaws.com";
+    private static Integer ports = 4567;
 
     public static void main(String[] args) throws IOException {
-        listicaURL[0] = "ec2-54-210-250-199.compute-1.amazonaws.com";
-        listicaURL[1] = "ec2-44-202-237-209.compute-1.amazonaws.com";
+        listicaURL[0] = "ec2-54-210-250-199.compute-1.amazonaws.com:4568";
+        listicaURL[1] = "ec2-44-202-237-209.compute-1.amazonaws.com:4568";
 
         ServerSocket serverSocket = null;
         try {
@@ -79,7 +81,7 @@ public class HttpServerPDT {
                         "    numberc = document.getElementsByName(\"name\")[0].value;\n" +
                         "    console.log(numberc);\n" +
                         //"    const url1 = `http://localhost:"+4567+"/acos?value=${numberc}`;\n" +
-                        "    const url1 = `http://ec2-3-87-66-72.compute-1.amazonaws.com:"+4567+"/acos?cadena=${numberc}`;\n" +
+                        "    const url1 = `http://"+url+":"+ports+"/acos?cadena=${numberc}`;\n" +
                         "\n" +
                         "    getapi(url1);\n" +
                         "}" +
@@ -89,7 +91,7 @@ public class HttpServerPDT {
                         "    console.log(numberc);\n" +
                         "\n" +
                         //"    const url1 = `http://localhost:"+4567+"/sin?value=${numberc}`;\n" +
-                        "    const url1 = `http://ec2-3-87-66-72.compute-1.amazonaws.com:"+4567+"/sin?cadena=${numberc}`;\n" +
+                        "    const url1 = `http://"+"url"+":"+ports+"/sin?cadena=${numberc}`;\n" +
                         "\n" +
                         "    getapi(url1);\n" +
                         "}"
@@ -177,7 +179,7 @@ public class HttpServerPDT {
         URL url = null;
         try {
             System.out.println(listicaURL[cont]);
-            url = new URL("http://"+ listicaURL[cont]+":4568/"+ type +"?value="+ integer);
+            url = new URL("http://"+ listicaURL[cont]+"/"+ type +"?value="+ integer);
             if(cont == 1) {
                 cont = 0;
             }else {
