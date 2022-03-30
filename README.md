@@ -32,7 +32,7 @@ En este caso el que esta consumiendo los servicios que la url de este es, y el p
 ``` 
 http://ec2-3-87-66-72.compute-1.amazonaws.com:4567/math
 ```
-
+![imagen](./img/4.PNG)
 
 ##Como correrlo en EC2
 
